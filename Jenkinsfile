@@ -36,6 +36,22 @@ pipeline {
                                }
                        }
         }
+         stage('login'){
+            steps{
+                script{
+                    sh 'docker login -u jatinderdhiman -p ${DOCKERHUB_PWD} '
+                    sh 'echo SUCESS'
+                }
+            }
+        }
+        
+        stage('Push Image'){
+            steps{
+                script{
+                    sh 'docker push jatinderdhiman/myfirstimage:1'
+                }
+            }
+        }
 
     }
 }
