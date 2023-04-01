@@ -28,6 +28,14 @@ pipeline {
                     sh "mvn test"
                }
         }
+                
+        stage("Docker build") {
+               steps {
+                        script {
+                                 sh "docker build -t jatinderdhiman/myfirstimage:1 ."
+                               }
+                       }
+        }
 
     }
 }
